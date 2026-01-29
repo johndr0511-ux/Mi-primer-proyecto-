@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora html</title>
+</head>
+<body>
+    <header>
+       <h1 id="titulo">calculadora realizada con html</h1> 
+    </header>
+    <main>
+         <!-- PANTALLA AÑADIDA AQUÍ -->
+        <input type="text" id="pantalla" readonly 
+                style="width: 400px; height: 50 px; font-size: 30px; text-align: right; margin-bottom: 20px;"> 
+
+               <!--Tabla de botones-->
+        <table border="2">
+            <tr>
+             <td><button onclick="agregarNumero('0')">0</button></td>
+             <td><button onclick="agregarNumero('1')">1</button></td>
+             <td><button onclick="agregarNumero('2')">2</button></td>
+             <td><button onclick="agregarNumero('3')">3</button></td>
+             <td><button onclick="agregarNumero('4')">4</button></td>
+             
+        
+            
+            </tr>
+            <tr> 
+             <td><button onclick="agregarNumero('5')">5</button></td>
+             <td><button onclick="agregarNumero('6')">6</button></td>
+             <td><button onclick="agregarNumero('7')">7</button></td>
+             <td><button onclick="agregarNumero('8')">8</button></td>
+             <td><button onclick="agregarNumero('9')">9</button></td>
+            
+            </tr>
+            <tr> 
+                <td><button onclick="agregarOperador('+')">+</button></td>
+                <td><button onclick="agregarOperador('-')">-</button></td>
+                <td><button onclick="agregarOperador('*')">*</button></td>
+                <td><button onclick="agregarOperador('/')">/</button></td>
+                <td><button onclick="agregarOperador('=')">=</button></td>
+                <td><button onclick="limpiarPantalla()">C</button></td>
+                
+            </tr>
+        </table>    
+         <form>
+            <input type="reset" value="Restablecer" onclick="limpiarPantalla()">
+        </form>
+    </main>
+
+       <script>
+        // Función para agregar NÚMEROS
+        function agregarNumero(numero) {
+            const pantalla = document.getElementById('pantalla');
+            
+            // Si la pantalla tiene SOLO "0", lo reemplazamos
+            if (pantalla.value === '0') {
+                pantalla.value = numero;
+            } 
+            // Si ya hay otro contenido, concatenamos normalmente
+            else {
+                pantalla.value = pantalla.value + numero;
+            }
+        }
+        
+        // Función para agregar OPERADORES (+, -, *, /)
+        function agregarOperador(operador) {
+            const pantalla = document.getElementById('pantalla');
+            
+            // Siempre concatenamos el operador al final
+            pantalla.value = pantalla.value + operador;
+        }
+        
+        // Función para limpiar la pantalla
+        function limpiarPantalla() {
+            document.getElementById('pantalla').value = '0';
+        }
+        
+        // Inicializar la pantalla
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('pantalla').value = '0';
+        });
+    </script>
+</body>
+</html>    
