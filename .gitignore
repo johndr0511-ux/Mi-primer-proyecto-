@@ -1,0 +1,9 @@
+# Archivos del sistemas
+.DS_Store
+Thumbs.db
+#Archivos de entornos
+.env
+node_modules/
+#Archivos temporales
+*.tmp
+*.log
